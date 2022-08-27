@@ -2,17 +2,20 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-
 import pandas as pd
 import numpy as np
+import plotly
 import plotly.graph_objects as go
+from plotly.graph_objects import Layout
+from plotly.validator_cache import ValidatorCache
+
 from pprint import pprint
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-mouse_data = pd.read_csv('C:/Users/User/Desktop/dataviz_week10/Mouse_metadata.csv')
-study_results = pd.read_csv('C:/Users/User/Desktop/dataviz_week10/Study_results.csv')
+mouse_data = pd.read_csv('Mouse_metadata.csv')
+study_results = pd.read_csv('Study_results.csv')
 merged_df = pd.merge(mouse_data, study_results, on = 'Mouse ID')
 
 # --------------------------------------------------------------------------------------------------------------
